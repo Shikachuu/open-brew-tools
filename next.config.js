@@ -3,6 +3,10 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 }
 
 export default nextConfig
