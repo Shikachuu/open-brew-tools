@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss"
+import Animate from "tailwindcss-animate"
+
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./src/**/*.{ts,tsx}",
@@ -77,7 +79,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [Animate],
   safelist: [
     "bg-magnesium",
     "bg-calcium",
@@ -85,3 +87,5 @@ module.exports = {
     "bg-sodium",
   ],
 }
+
+export default config

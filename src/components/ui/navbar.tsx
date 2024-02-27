@@ -1,11 +1,11 @@
-import type { PropsWithChildren } from "react"
-import { NavLink } from "react-router-dom"
-import type { Path } from "src/router"
+"use client"
 
-export interface NavbarOptionProps {
-  displayName: string
-  uri: Path
-}
+import type { Url } from "node:url"
+import Link from "next/link"
+import type { PropsWithChildren } from "react"
+import { useRouter } from "next/router"
+import { cn } from "@lib/utils"
+import { usePathname } from "next/navigation"
 
 export const Navbar: React.FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -15,10 +15,17 @@ export const Navbar: React.FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
+export interface NavbarOptionProps {
+  displayName: string
+  uri: Url | string
+}
+
 export const NavbarOption: React.FC<NavbarOptionProps> = ({ displayName, uri }) => {
+  const pathName = usePathname()
+
   return (
-    <NavLink to={uri} className="nav-link">
+    <Link href={uri} className={cn(`nav-link ${pathName === uri ? "active" : ""}`)}>
       {displayName}
-    </NavLink>
+    </Link>
   )
 }

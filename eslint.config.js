@@ -20,5 +20,6 @@ export default antfu({
   rules: {
     "react/prop-types": "off",
     "eslint-comments/no-unlimited-disable": "off",
+    "react-refresh/only-export-components": "off",
   },
 })

@@ -1,3 +1,5 @@
+"use client"
+
 import { RecipePicker } from "@components/RecipePicker"
 import { WaterPicker } from "@components/WaterPicker"
 import { Card, CardContent } from "@components/ui/card"
