@@ -22,12 +22,12 @@ export function WaterPicker({ waterQuantityMl, setWaterQuantityMl }: WaterPicker
             id="waterSlider"
           />
         </label>
-        <p className="px-4 font-bold text-center text-2xl">
+        <p className="px-4 font-bold text-center text-2xl m-10 md:m-0">
           {waterQuantityMl < 1000 ? `${waterQuantityMl} Ml` : `${waterQuantityMl / 1000} L`}
         </p>
       </div>
 
-      <section>
+      <section className="hidden md:block">
         <span className="text-center">Presets</span>
         <ul className="flex justify-evenly flex-wrap">
           <li>
