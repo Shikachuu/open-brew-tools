@@ -24,8 +24,8 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex mx-4">
-        <Card className="lg:w-1/4 w-2/4 mr-4 lg:mr-0">
+      <div className="flex mx-4 flex-col justify-stretch lg:flex-row lg:justify-between">
+        <Card className="lg:w-1/4 w-full">
           <CardContent>
             <label htmlFor="dropletStyle" className="flex flex-col">
               <span className="text-center">Droplet type</span>
@@ -42,8 +42,44 @@ export default function Page() {
             <RecipePicker setRecipe={setRecipe} />
           </CardContent>
         </Card>
-        <div className="lg:w-1/4" />
-        <Card className="w-2/4">
+        <Card className="lg:w-auto w-full lg:mx-4 my-2 lg:my-0">
+          <CardContent>
+            <p className="text-center">Presets</p>
+            <ul className="flex justify-evenly flex-wrap">
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(220)}>
+                  Set to a basic cupping bowl (220Ml)
+                </button>
+              </li>
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(450)}>
+                  Set to Mixing bottle (450Ml)
+                </button>
+              </li>
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(1000)}>
+                  Set to 1L
+                </button>
+              </li>
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(2000)}>
+                  Set to 2L
+                </button>
+              </li>
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(5000)}>
+                  Set to 5L
+                </button>
+              </li>
+              <li>
+                <button className="button grow my-2" onClick={() => setWaterQuantityMl(10000)}>
+                  Set to max (10L)
+                </button>
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+        <Card className="lg:w-1/4 w-full">
           <CardContent>
             <WaterPicker waterQuantityMl={waterQuantityMl} setWaterQuantityMl={setWaterQuantityMl} />
           </CardContent>
