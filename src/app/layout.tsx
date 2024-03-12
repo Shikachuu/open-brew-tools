@@ -18,6 +18,7 @@ export default function RootLayout({
         <Navbar>
           <NavbarOption displayName="Home" uri="/" />
           <NavbarOption displayName="Lotus Water Calculator" uri="/water" />
+          <NavbarOption displayName="Brew Ratio Calculator" uri="/ratio" />
         </Navbar>
         <div className="dot-mask -z-30" />
         <main className="p-4 mb-auto">

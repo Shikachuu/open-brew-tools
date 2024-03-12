@@ -3,7 +3,6 @@
 import type { Url } from "node:url"
 import Link from "next/link"
 import type { PropsWithChildren } from "react"
-import { useRouter } from "next/router"
 import { cn } from "@lib/utils"
 import { usePathname } from "next/navigation"
 

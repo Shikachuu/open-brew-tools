@@ -1,8 +1,12 @@
-export interface BrewRatio {
-  input?: number
-  output?: number
-  ratio?: number
-}
+import { z } from "zod"
+
+export const brewRatioSchema = z.object({
+  input: z.union([z.number().positive().min(5), z.nan()]).optional(),
+  output: z.union([z.number().positive().min(10), z.nan()]).optional(),
+  ratio: z.union([z.number().positive().min(1), z.nan()]).optional(),
+})
+
+export type BrewRatio = z.infer<typeof brewRatioSchema>
 
 export function calculateMissingBrewRatioParam({ input, output, ratio = undefined }: BrewRatio): BrewRatio {
   if ([input, output, ratio].filter(p => !p).length > 1)
