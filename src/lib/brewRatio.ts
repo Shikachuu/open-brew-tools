@@ -9,8 +9,7 @@ export const brewRatioSchema = z.object({
 export type BrewRatio = z.infer<typeof brewRatioSchema>
 
 export function calculateMissingBrewRatioParam({ input, output, ratio = undefined }: BrewRatio): BrewRatio {
-  if ([input, output, ratio].filter(p => !p).length > 1)
-    throw new Error("more than a single parameter is missing")
+  if ([input, output, ratio].filter(p => !p).length > 1) throw new Error("more than a single parameter is missing")
 
   if ([input, output, ratio].some(p => !p)) {
     switch (true) {

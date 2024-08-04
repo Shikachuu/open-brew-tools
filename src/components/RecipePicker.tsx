@@ -23,7 +23,9 @@ export function RecipePicker({ setRecipe }: RecipePickerProps) {
         </SelectTrigger>
         <SelectContent>
           {waterRecipes.map(wr => (
-            <SelectItem key={wr.id} value={wr.id.toString()}>{wr.name}</SelectItem>
+            <SelectItem key={wr.id} value={wr.id.toString()}>
+              {wr.name}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>

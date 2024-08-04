@@ -9,7 +9,7 @@ import {
 describe("test calculate missing brew ratio parameter", () => {
   interface TestCase {
     name: string
-    input: { waterRecipe: WaterRecipePpm, dropletType: DropletType, waterVolumeMl: number }
+    input: { waterRecipe: WaterRecipePpm; dropletType: DropletType; waterVolumeMl: number }
     expect: LotusWaterDroplets
   }
 
@@ -69,11 +69,10 @@ describe("test calculate missing brew ratio parameter", () => {
   ]
 
   for (const tc of testCases) {
-    it(tc.name, () => expect(calculateLotusWaterDroplets(
-      tc.input.waterRecipe,
-      tc.input.dropletType,
-      tc.input.waterVolumeMl,
-    ))
-      .toEqual(tc.expect))
+    it(tc.name, () =>
+      expect(calculateLotusWaterDroplets(tc.input.waterRecipe, tc.input.dropletType, tc.input.waterVolumeMl)).toEqual(
+        tc.expect,
+      ),
+    )
   }
 })

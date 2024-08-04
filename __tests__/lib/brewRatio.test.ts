@@ -50,5 +50,5 @@ describe("test calculate missing brew ratio paramter errors", () => {
   ]
 
   for (const tc of testCases)
-    it(tc.name, () => expect(() => calculateMissingBrewRatioParam(tc.input)).throws(tc.errorMessage))
+    it(tc.name, () => expect(() => calculateMissingBrewRatioParam(tc.input)).toThrow(tc.errorMessage))
 })

@@ -1,6 +1,6 @@
 import type { WaterRecipePpm } from "./waterRatio"
 
-export const waterRecipes: { id: number, name: string, data: WaterRecipePpm }[] = [
+export const waterRecipes: { id: number; name: string; data: WaterRecipePpm }[] = [
   {
     id: 0,
     name: "Light and Bright",

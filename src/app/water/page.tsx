@@ -3,6 +3,7 @@
 import { RecipePicker } from "@components/RecipePicker"
 import { WaterPicker } from "@components/WaterPicker"
 import { Card, CardContent } from "@components/ui/card"
+import { Graph } from "@components/ui/graph"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@components/ui/select"
 import { waterRecipes } from "@lib/index"
 import { calculateLotusWaterDroplets } from "@lib/waterRatio"
@@ -14,9 +15,12 @@ export default function Page() {
   const [recipe, setRecipe] = useState<WaterRecipePpm>(waterRecipes[0].data)
   const [dropletType, setDropletType] = useState<DropletType>("round")
 
-  const [recommendedLotusParams, setRecommendedLotusParams] = useState<LotusWaterDroplets>(
-    { calcium: 0, magnesium: 0, potassium: 0, sodium: 0 },
-  )
+  const [recommendedLotusParams, setRecommendedLotusParams] = useState<LotusWaterDroplets>({
+    calcium: 0,
+    magnesium: 0,
+    potassium: 0,
+    sodium: 0,
+  })
 
   useEffect(() => {
     setRecommendedLotusParams(calculateLotusWaterDroplets(recipe, dropletType, waterQuantityMl))
@@ -88,33 +92,26 @@ export default function Page() {
       <div className="flex flex-1 w-full flex-wrap lg:flex-nowrap">
         <Card className="mx-4 p-6 my-2 min-w-52 w-full text-center font-mono bg-magnesium">
           <CardContent className="p-0 py-6">
-            <b>{recommendedLotusParams?.magnesium}</b>
-            {" "}
-            <span className="capitalize">magnesium</span>
+            <b>{recommendedLotusParams?.magnesium}</b> <span className="capitalize">magnesium</span>
           </CardContent>
         </Card>
         <Card className="mx-4 p-6 my-2 min-w-52 w-full text-center font-mono bg-calcium">
           <CardContent className="p-0 py-6">
-            <b>{recommendedLotusParams?.calcium}</b>
-            {" "}
-            <span className="capitalize">calcium</span>
+            <b>{recommendedLotusParams?.calcium}</b> <span className="capitalize">calcium</span>
           </CardContent>
         </Card>
         <Card className="mx-4 p-6 my-2 min-w-52 w-full text-center font-mono bg-potassium">
           <CardContent className="p-0 py-6">
-            <b>{recommendedLotusParams?.potassium}</b>
-            {" "}
-            <span className="capitalize">potassium</span>
+            <b>{recommendedLotusParams?.potassium}</b> <span className="capitalize">potassium</span>
           </CardContent>
         </Card>
         <Card className="mx-4 p-6 my-2 min-w-52 w-full text-center font-mono bg-sodium">
           <CardContent className="p-0 py-6">
-            <b>{recommendedLotusParams?.sodium}</b>
-            {" "}
-            <span className="capitalize">sodium</span>
+            <b>{recommendedLotusParams?.sodium}</b> <span className="capitalize">sodium</span>
           </CardContent>
         </Card>
       </div>
+      <Graph recipe={recipe} />
     </>
   )
 }

@@ -3,9 +3,7 @@ import Animate from "tailwindcss-animate"
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -80,12 +78,7 @@ const config: Config = {
     },
   },
   plugins: [Animate],
-  safelist: [
-    "bg-magnesium",
-    "bg-calcium",
-    "bg-potassium",
-    "bg-sodium",
-  ],
+  safelist: ["bg-magnesium", "bg-calcium", "bg-potassium", "bg-sodium"],
 }
 
 export default config

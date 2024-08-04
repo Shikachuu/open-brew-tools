@@ -7,11 +7,7 @@ import { cn } from "@lib/utils"
 import { usePathname } from "next/navigation"
 
 export const Navbar: React.FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <nav className="my-4 flex justify-items-center">
-      {children}
-    </nav>
-  )
+  return <nav className="my-4 flex justify-items-center">{children}</nav>
 }
 
 export interface NavbarOptionProps {

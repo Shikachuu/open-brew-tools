@@ -9,15 +9,15 @@ import type { SubmitHandler } from "react-hook-form"
 import { useForm } from "react-hook-form"
 
 export default function Page() {
-  const [brewRatio, setBrewRatio] = useState(
-    calculateMissingBrewRatioParam({ input: 15, output: 255, ratio: 17 }),
-  )
+  const [brewRatio, setBrewRatio] = useState(calculateMissingBrewRatioParam({ input: 15, output: 255, ratio: 17 }))
 
-  const { register, handleSubmit, formState: { errors } } = useForm<BrewRatio>(
-    { resolver: zodResolver(brewRatioSchema) },
-  )
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<BrewRatio>({ resolver: zodResolver(brewRatioSchema) })
 
-  const onSubmit: SubmitHandler<BrewRatio> = (formValue) => {
+  const onSubmit: SubmitHandler<BrewRatio> = formValue => {
     setBrewRatio(calculateMissingBrewRatioParam(formValue))
   }
 
@@ -53,15 +53,14 @@ export default function Page() {
             {Object.entries(errors).map(([field, error]) => (
               <>
                 <span key={field}>
-                  {field}
-                  :
-                  {" "}
-                  {error.message}
+                  {field}: {error.message}
                 </span>
                 <br />
               </>
             ))}
-            <button className="button w-full my-2" type="submit">Calculate</button>
+            <button className="button w-full my-2" type="submit">
+              Calculate
+            </button>
           </form>
         </CardContent>
       </Card>
@@ -73,10 +72,7 @@ export default function Page() {
             <b> X </b>
             <b>{brewRatio.ratio}</b>
             <sub> brew ratio </sub>
-            <b>
-              =
-              {brewRatio.output}
-            </b>
+            <b>={brewRatio.output}</b>
             <sub> g yield </sub>
           </h1>
         </CardContent>
